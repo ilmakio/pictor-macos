@@ -1,6 +1,6 @@
 import AppKit
 import XCTest
-@testable import Paint
+@testable import Pictor
 
 /// Stands in for the canvas so tools can be driven with no window on screen.
 final class StubToolHost: ToolHost {

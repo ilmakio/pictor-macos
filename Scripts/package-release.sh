@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Builds, signs, notarises, staples and zips Paint.app for distribution.
+# Builds, signs, notarises, staples and zips Pictor.app for distribution.
 #
 #   ./Scripts/package-release.sh                # sign + notarise + staple
 #   ./Scripts/package-release.sh --skip-notarize  # sign only, for a quick check
@@ -20,8 +20,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 DEFAULT_TEAM_ID="AUNK4Y4APT"
-SCHEME="Paint"
-APP_NAME="Paint.app"
+SCHEME="Pictor"
+APP_NAME="Pictor.app"
 SKIP_NOTARIZE=0
 
 while [[ $# -gt 0 ]]; do
@@ -71,7 +71,7 @@ if ! security find-identity -v -p codesigning | grep -q "Developer ID Applicatio
 fi
 
 BUILD_DIR="$ROOT_DIR/.build"
-ARCHIVE="$BUILD_DIR/Paint.xcarchive"
+ARCHIVE="$BUILD_DIR/Pictor.xcarchive"
 EXPORT_DIR="$BUILD_DIR/export"
 DIST_DIR="$ROOT_DIR/dist"
 APP="$EXPORT_DIR/$APP_NAME"
@@ -90,7 +90,7 @@ step "Archiving (Release)"
 # project. The export step below applies it instead.
 run_xcodebuild "$BUILD_DIR/archive.log" \
   xcodebuild archive \
-  -project Paint.xcodeproj \
+  -project Pictor.xcodeproj \
   -scheme "$SCHEME" \
   -configuration Release \
   -destination 'platform=macOS' \
@@ -213,17 +213,17 @@ fi
 # ------------------------------------------------------------------ package
 
 step "Packaging"
-ZIP="$DIST_DIR/Paint.zip"
+ZIP="$DIST_DIR/Pictor.zip"
 rm -rf "$DIST_DIR/$APP_NAME" "$ZIP"
 ditto "$APP" "$DIST_DIR/$APP_NAME"
 ditto -c -k --keepParent "$DIST_DIR/$APP_NAME" "$ZIP"
 
-printf '\n\033[32m✓ %s\033[0m\n' "dist/Paint.zip — version $VERSION, $(du -h "$ZIP" | cut -f1)"
+printf '\n\033[32m✓ %s\033[0m\n' "dist/Pictor.zip — version $VERSION, $(du -h "$ZIP" | cut -f1)"
 if [[ "$SKIP_NOTARIZE" -eq 0 ]]; then
   echo "  Signed, notarised and stapled: it opens with a double-click on any Mac."
   echo
   echo "  Publish it with:"
-  echo "    gh release create v$VERSION dist/Paint.zip --title v$VERSION --notes-file <notes.md>"
+  echo "    gh release create v$VERSION dist/Pictor.zip --title v$VERSION --notes-file <notes.md>"
 else
   echo "  Signed but NOT notarised — Gatekeeper will still warn on other Macs."
 fi

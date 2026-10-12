@@ -1,4 +1,4 @@
-name: Paint
+name: Pictor
 options:
   bundleIdPrefix: app.makio
   deploymentTarget:
@@ -10,26 +10,26 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.0"
-    MARKETING_VERSION: "1.0.2"
-    CURRENT_PROJECT_VERSION: "3"
+    MARKETING_VERSION: "1.1.0"
+    CURRENT_PROJECT_VERSION: "4"
     ALWAYS_SEARCH_USER_PATHS: NO
     CLANG_ENABLE_OBJC_ARC: YES
     ENABLE_STRICT_OBJC_MSGSEND: YES
     SWIFT_STRICT_CONCURRENCY: minimal
 
 targets:
-  Paint:
+  Pictor:
     type: application
     platform: macOS
     sources:
-      - path: Paint
+      - path: Pictor
     settings:
       base:
-        PRODUCT_NAME: Paint
+        PRODUCT_NAME: Pictor
         PRODUCT_BUNDLE_IDENTIFIER: app.makio.paint
-        INFOPLIST_FILE: Paint/Info.plist
+        INFOPLIST_FILE: Pictor/Info.plist
         GENERATE_INFOPLIST_FILE: NO
-        CODE_SIGN_ENTITLEMENTS: Paint/Paint.entitlements
+        CODE_SIGN_ENTITLEMENTS: Pictor/Pictor.entitlements
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_IDENTITY: "-"
         DEVELOPMENT_TEAM: AUNK4Y4APT
@@ -48,13 +48,13 @@ targets:
           # applied at export time by Scripts/package-release.sh.
           ENABLE_HARDENED_RUNTIME: YES
 
-  PaintTests:
+  PictorTests:
     type: bundle.unit-test
     platform: macOS
     sources:
-      - path: PaintTests
+      - path: PictorTests
     dependencies:
-      - target: Paint
+      - target: Pictor
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: app.makio.paint.tests
@@ -62,14 +62,14 @@ targets:
         CODE_SIGN_IDENTITY: "-"
 
 schemes:
-  Paint:
+  Pictor:
     build:
       targets:
-        Paint: all
-        PaintTests: [test]
+        Pictor: all
+        PictorTests: [test]
     run:
       config: Debug
     test:
       config: Debug
       targets:
-        - PaintTests
+        - PictorTests

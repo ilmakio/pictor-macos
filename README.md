@@ -1,36 +1,36 @@
-<h1 align="center">Paint</h1>
+<h1 align="center">Pictor</h1>
 
 <p align="center">
-  A pixel-perfect tribute to MS Paint, built natively for macOS in Swift and AppKit.
+  The simple pixel paint app the Mac never had, built natively in Swift and AppKit.
 </p>
 
 <p align="center">
-  <a href="https://paint.makio.app"><strong>paint.makio.app</strong></a>
+  <a href="https://pictor.makio.app"><strong>pictor.makio.app</strong></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/ilmakio/paint-macos/actions/workflows/ci.yml"><img src="https://github.com/ilmakio/paint-macos/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/ilmakio/pictor-macos/actions/workflows/ci.yml"><img src="https://github.com/ilmakio/pictor-macos/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/macOS-14%2B-000000?logo=apple&logoColor=white" alt="macOS 14+">
   <img src="https://img.shields.io/badge/Swift-5-F05138?logo=swift&logoColor=white" alt="Swift 5">
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue" alt="MIT licence"></a>
 </p>
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="Paint drawing a house, a sun and grass on an 800×600 canvas" width="900">
+  <img src="docs/screenshot.png" alt="Pictor drawing a house, a sun and grass on an 800×600 canvas" width="900">
 </p>
 
-macOS never got a Paint. Preview can crop, Pixelmator is a career, and every
-"simple" web canvas smooths your pixels into mush. This is the missing one:
-all sixteen tools from the original toolbox, the 28-colour palette, two active
-colours on the left and right mouse buttons, and a bucket that respects a
-one-pixel outline. No interpolation, no smoothing — the pixel you click is the
-pixel that changes.
+Miss the little paint program that came with Windows? macOS never had one.
+Preview can crop, Pixelmator is a career, and every "simple" web canvas smooths
+your pixels into mush. Pictor is the missing one: sixteen classic tools, a
+28-colour palette, two active colours on the left and right mouse buttons, and
+a bucket that respects a one-pixel outline. No interpolation, no smoothing —
+the pixel you click is the pixel that changes.
 
 ## Install
 
-Grab it from [paint.makio.app](https://paint.makio.app), or download the latest
-`Paint.zip` straight from [Releases](https://github.com/ilmakio/paint-macos/releases).
-Unzip it and drag `Paint.app` into `/Applications`.
+Grab it from [pictor.makio.app](https://pictor.makio.app), or download the latest
+`Pictor.zip` straight from [Releases](https://github.com/ilmakio/pictor-macos/releases).
+Unzip it and drag `Pictor.app` into `/Applications`.
 
 Releases are signed with a Developer ID certificate and notarised by Apple, so
 they open with a double-click — no right-click dance, no quarantine flag to
@@ -42,10 +42,10 @@ Requires macOS 14 or later, Xcode 15+, and [xcodegen](https://github.com/yonasko
 (`brew install xcodegen`).
 
 ```bash
-git clone https://github.com/ilmakio/paint-macos.git
-cd paint-macos
+git clone https://github.com/ilmakio/pictor-macos.git
+cd pictor-macos
 xcodegen generate
-open Paint.xcodeproj
+open Pictor.xcodeproj
 ```
 
 The `.xcodeproj` is generated from `project.yml` — edit the YAML and re-run
@@ -64,12 +64,12 @@ The `.xcodeproj` is generated from `project.yml` — edit the YAML and re-run
   between round, square and the two calligraphic slashes. `[` and `]` resize the
   nib without leaving the canvas.
 - **Fill With Color** is 4-connected with an optional tolerance. At tolerance 0
-  it behaves exactly like the original, diagonal leaks and all.
+  it behaves exactly like the classic bucket, diagonal leaks and all.
 - **Eraser** lays down the background colour. Right-drag turns it into the
   colour eraser, which only replaces the foreground colour.
 - **Shapes** draw outlined, filled, or both, at any line width. Ellipses and
   rounded rectangles come out watertight, so the bucket cannot escape them.
-- **Curve** works the Paint way: drag a straight line, then pull it twice.
+- **Curve** works the old-school way: drag a straight line, then pull it twice.
 - **Polygon** places a vertex per click; double-click, press Return, or click
   the first vertex to close it.
 - **Text** drops a live editor on the canvas with a font, size and B/I/U, and
@@ -129,14 +129,14 @@ trip; the formats that cannot hold it are flattened onto white on the way out.
 ## How it is put together
 
 ```
-Paint/
+Pictor/
   App/        entry point, menu bar, app delegate
   Models/     the raster core and the document
   Tools/      one state machine per tool, written against a ToolHost protocol
   Views/      canvas, toolbox, options, palette, status bar, window controller
   Components/ toolbox buttons, tool glyphs, clip view
   Dialogs/    Attributes and Stretch/Skew sheets
-PaintTests/   75 tests over the raster core, the document and every tool
+PictorTests/  75 tests over the raster core, the document and every tool
 ```
 
 A few decisions worth knowing about:
@@ -161,7 +161,7 @@ why the test suite can drive all sixteen of them with no window on screen.
 ## Tests
 
 ```bash
-xcodebuild -project Paint.xcodeproj -scheme Paint test
+xcodebuild -project Pictor.xcodeproj -scheme Pictor test
 ```
 
 Covers the pixel format round trip, line and ellipse connectivity, flood-fill
@@ -176,26 +176,30 @@ that touches pixels, and run the suite before opening a PR.
 
 ## Updates
 
-Paint ▸ **Check for Updates…** asks GitHub whether a newer release exists and,
+Pictor ▸ **Check for Updates…** asks GitHub whether a newer release exists and,
 if there is one, offers to open the download page. That is the whole feature:
 **it never downloads, unpacks or installs anything**, so nothing ever runs on
 your Mac that you didn't fetch and unzip yourself.
 
 It also checks quietly on launch, at most once a day, and says nothing unless
-there is something newer. Turn that off with Paint ▸ **Check Automatically**;
+there is something newer. Turn that off with Pictor ▸ **Check Automatically**;
 the manual menu item keeps working either way. This is the only reason the app
-carries the `network.client` entitlement — Paint has no analytics and uploads
+carries the `network.client` entitlement — Pictor has no analytics and uploads
 nothing.
 
 ## Support
 
-Paint is free and always will be. If it saved you a trip to a Windows VM, you can
+Pictor is free and always will be. If it saved you a trip to a Windows VM, you can
 [buy me a coffee](https://ko-fi.com/ilmakio) — it is the only thing this project asks for.
 
 ## Licence
 
 [MIT](LICENSE) © 2026 Manuel Rizzo.
 
-Paint is an independent project inspired by the classic Windows accessory. It is
+Pictor is an independent project inspired by the classic Windows accessory. It is
 not affiliated with, endorsed by, or derived from any Microsoft product, and
-contains no Microsoft code or assets.
+contains no Microsoft code or assets. Microsoft Paint is a trademark of
+Microsoft Corporation.
+
+Until version 1.0.2 the app was called Paint; it was renamed Pictor in 1.1.0.
+Your settings carry over, and older copies still find the update.

@@ -64,8 +64,8 @@ struct AppVersion: Comparable, CustomStringConvertible {
 final class UpdateChecker {
     static let shared = UpdateChecker()
 
-    private let feedURL = URL(string: "https://api.github.com/repos/ilmakio/paint-macos/releases/latest")!
-    private let downloadPage = URL(string: "https://paint.makio.app")!
+    private let feedURL = URL(string: "https://api.github.com/repos/ilmakio/pictor-macos/releases/latest")!
+    private let downloadPage = URL(string: "https://pictor.makio.app")!
     private let checkInterval: TimeInterval = 60 * 60 * 24
 
     private enum Key {
@@ -104,7 +104,7 @@ final class UpdateChecker {
         else { return nil }
         let page = (object["html_url"] as? String).flatMap(URL.init(string:))
         return Release(version: version, pageURL: page
-            ?? URL(string: "https://github.com/ilmakio/paint-macos/releases/latest")!)
+            ?? URL(string: "https://github.com/ilmakio/pictor-macos/releases/latest")!)
     }
 
     // MARK: Entry points
@@ -131,7 +131,7 @@ final class UpdateChecker {
 
         var request = URLRequest(url: feedURL)
         request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-        request.setValue("Paint/\(currentVersion) (macOS)", forHTTPHeaderField: "User-Agent")
+        request.setValue("Pictor/\(currentVersion) (macOS)", forHTTPHeaderField: "User-Agent")
         request.timeoutInterval = 15
         // Never serve a stale answer from the URL cache for an explicit check.
         request.cachePolicy = userInitiated ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy
@@ -150,7 +150,7 @@ final class UpdateChecker {
                       let data, let release = UpdateChecker.parseRelease(from: data)
                 else {
                     if userInitiated {
-                        self.presentFailure("GitHub didn’t return a release Paint could read.")
+                        self.presentFailure("GitHub didn’t return a release Pictor could read.")
                     }
                     return
                 }
@@ -170,7 +170,7 @@ final class UpdateChecker {
 
     private func presentUpdate(_ release: Release) {
         let alert = NSAlert()
-        alert.messageText = "Paint \(release.version) is available"
+        alert.messageText = "Pictor \(release.version) is available"
         alert.informativeText = """
         You’re running \(currentVersion). Paint doesn’t install updates for itself — \
         the button below just opens the download page in your browser.
@@ -192,7 +192,7 @@ final class UpdateChecker {
     private func presentUpToDate() {
         let alert = NSAlert()
         alert.messageText = "You’re up to date"
-        alert.informativeText = "Paint \(currentVersion) is the latest version."
+        alert.informativeText = "Pictor \(currentVersion) is the latest version."
         alert.addButton(withTitle: "OK")
         alert.runModal()
     }

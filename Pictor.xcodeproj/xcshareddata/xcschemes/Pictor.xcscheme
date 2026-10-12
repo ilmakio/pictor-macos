@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A01A2BA06B332F0695F3A76"
-               BuildableName = "Paint.app"
-               BlueprintName = "Paint"
-               ReferencedContainer = "container:Paint.xcodeproj">
+               BlueprintIdentifier = "7C028186BE3FFB8A33595766"
+               BuildableName = "Pictor.app"
+               BlueprintName = "Pictor"
+               ReferencedContainer = "container:Pictor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,10 +29,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6CA1506CCECB073831487A1E"
-               BuildableName = "PaintTests.xctest"
-               BlueprintName = "PaintTests"
-               ReferencedContainer = "container:Paint.xcodeproj">
+               BlueprintIdentifier = "79A37DD738E1141B1018A777"
+               BuildableName = "PictorTests.xctest"
+               BlueprintName = "PictorTests"
+               ReferencedContainer = "container:Pictor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,10 +46,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A01A2BA06B332F0695F3A76"
-            BuildableName = "Paint.app"
-            BlueprintName = "Paint"
-            ReferencedContainer = "container:Paint.xcodeproj">
+            BlueprintIdentifier = "7C028186BE3FFB8A33595766"
+            BuildableName = "Pictor.app"
+            BlueprintName = "Pictor"
+            ReferencedContainer = "container:Pictor.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -58,10 +58,10 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6CA1506CCECB073831487A1E"
-               BuildableName = "PaintTests.xctest"
-               BlueprintName = "PaintTests"
-               ReferencedContainer = "container:Paint.xcodeproj">
+               BlueprintIdentifier = "79A37DD738E1141B1018A777"
+               BuildableName = "PictorTests.xctest"
+               BlueprintName = "PictorTests"
+               ReferencedContainer = "container:Pictor.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -82,10 +82,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A01A2BA06B332F0695F3A76"
-            BuildableName = "Paint.app"
-            BlueprintName = "Paint"
-            ReferencedContainer = "container:Paint.xcodeproj">
+            BlueprintIdentifier = "7C028186BE3FFB8A33595766"
+            BuildableName = "Pictor.app"
+            BlueprintName = "Pictor"
+            ReferencedContainer = "container:Pictor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -101,10 +101,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A01A2BA06B332F0695F3A76"
-            BuildableName = "Paint.app"
-            BlueprintName = "Paint"
-            ReferencedContainer = "container:Paint.xcodeproj">
+            BlueprintIdentifier = "7C028186BE3FFB8A33595766"
+            BuildableName = "Pictor.app"
+            BlueprintName = "Pictor"
+            ReferencedContainer = "container:Pictor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

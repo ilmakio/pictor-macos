@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] — 2026-10-12
+
+### Changed
+
+- Paint is now **Pictor**. Same app, same tools, same files — just a name of
+  its own. The bundle identifier is unchanged, so your settings, recent files
+  and the "skip this version" choice carry over.
+- New app icon: the palette on its own, without the brush.
+- The project moved to [ilmakio/pictor-macos](https://github.com/ilmakio/pictor-macos)
+  and the website to [pictor.makio.app](https://pictor.makio.app). The old
+  addresses redirect, so copies of Paint 1.0.2 still find this update.
+- Release downloads are now `Pictor.zip`.
+
 ## [1.0.2] — 2026-08-06
 
 ### Added
@@ -59,6 +72,7 @@ First public release.
   selection move collapsing into a single step.
 - 75 tests covering the raster core, the document layer and every tool.
 
-[1.0.2]: https://github.com/ilmakio/paint-macos/releases/tag/v1.0.2
-[1.0.1]: https://github.com/ilmakio/paint-macos/releases/tag/v1.0.1
-[1.0.0]: https://github.com/ilmakio/paint-macos/releases/tag/v1.0.0
+[1.1.0]: https://github.com/ilmakio/pictor-macos/releases/tag/v1.1.0
+[1.0.2]: https://github.com/ilmakio/pictor-macos/releases/tag/v1.0.2
+[1.0.1]: https://github.com/ilmakio/pictor-macos/releases/tag/v1.0.1
+[1.0.0]: https://github.com/ilmakio/pictor-macos/releases/tag/v1.0.0

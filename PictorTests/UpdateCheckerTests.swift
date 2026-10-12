@@ -1,5 +1,5 @@
 import XCTest
-@testable import Paint
+@testable import Pictor
 
 final class AppVersionTests: XCTestCase {
 
@@ -62,11 +62,11 @@ final class UpdateCheckerParsingTests: XCTestCase {
 
     func testReadsTagAndPage() throws {
         let release = try XCTUnwrap(UpdateChecker.parseRelease(
-            from: payload(tag: "v1.4.0", url: "https://github.com/ilmakio/paint-macos/releases/tag/v1.4.0")
+            from: payload(tag: "v1.4.0", url: "https://github.com/ilmakio/pictor-macos/releases/tag/v1.4.0")
         ))
         XCTAssertEqual(release.version.components, [1, 4, 0])
         XCTAssertEqual(release.pageURL.absoluteString,
-                       "https://github.com/ilmakio/paint-macos/releases/tag/v1.4.0")
+                       "https://github.com/ilmakio/pictor-macos/releases/tag/v1.4.0")
     }
 
     func testFallsBackToTheReleasesPageWhenTheURLIsMissing() throws {

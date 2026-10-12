@@ -6,27 +6,27 @@ Thanks for taking a look. Issues and pull requests are both welcome.
 
 ```bash
 brew install xcodegen
-git clone https://github.com/ilmakio/paint-macos.git
-cd paint-macos
+git clone https://github.com/ilmakio/pictor-macos.git
+cd pictor-macos
 xcodegen generate
-open Paint.xcodeproj
+open Pictor.xcodeproj
 ```
 
-`Paint.xcodeproj` is generated from `project.yml`. If you need a new file,
+`Pictor.xcodeproj` is generated from `project.yml`. If you need a new file,
 target or build setting, change the YAML and re-run `xcodegen generate` — hand
 edits to the project file get overwritten.
 
 ## Running the tests
 
 ```bash
-xcodebuild -project Paint.xcodeproj -scheme Paint test
+xcodebuild -project Pictor.xcodeproj -scheme Pictor test
 ```
 
 All 75 should pass before and after your change. CI runs the same command.
 
 ## House rules
 
-**Keep the raster core free of AppKit.** Everything under `Paint/Models` that
+**Keep the raster core free of AppKit.** Everything under `Pictor/Models` that
 deals with pixels — `PixelBuffer`, `Raster`, `FloodFill`, `Brush`, `Painter` —
 should only need Foundation and CoreGraphics. That is what lets the tests drive
 it with no window on screen.
@@ -81,7 +81,7 @@ working release job without anyone's private key.
 
 ## Scope
 
-Paint deliberately stops where the original stopped: one raster layer, no
+Pictor deliberately stops where the classic stopped: one raster layer, no
 filters, no vector objects, no cloud anything. Features that fit the classic
 toolbox are in scope; a layers panel is not. If you are unsure, open an issue
 before writing the code.

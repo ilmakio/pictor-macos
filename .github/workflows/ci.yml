@@ -30,8 +30,8 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild test \
-            -project Paint.xcodeproj \
-            -scheme Paint \
+            -project Pictor.xcodeproj \
+            -scheme Pictor \
             -configuration Debug \
             -destination 'platform=macOS' \
             | xcbeautify --renderer github-actions
@@ -40,8 +40,8 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild build \
-            -project Paint.xcodeproj \
-            -scheme Paint \
+            -project Pictor.xcodeproj \
+            -scheme Pictor \
             -configuration Release \
             -destination 'platform=macOS' \
             | xcbeautify --renderer github-actions

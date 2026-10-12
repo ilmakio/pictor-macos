@@ -98,14 +98,14 @@ jobs:
         run: |
           xcodegen generate
           xcodebuild build \
-            -project Paint.xcodeproj \
-            -scheme Paint \
+            -project Pictor.xcodeproj \
+            -scheme Pictor \
             -configuration Release \
             -destination 'platform=macOS' \
             -derivedDataPath .build
           mkdir -p dist
           # ditto preserves the bundle's symlinks and metadata; plain `zip` does not.
-          ditto -c -k --keepParent .build/Build/Products/Release/Paint.app dist/Paint.zip
+          ditto -c -k --keepParent .build/Build/Products/Release/Pictor.app dist/Pictor.zip
 
       - name: Write release notes
         if: steps.existing.outputs.found == 'false'
@@ -113,7 +113,7 @@ jobs:
           SIGNED: ${{ steps.signing.outputs.enabled }}
         run: |
           {
-            echo 'Unzip and drag `Paint.app` into `/Applications`.'
+            echo 'Unzip and drag `Pictor.app` into `/Applications`.'
             echo
             if [ "$SIGNED" = "true" ]; then
               echo 'Signed with a Developer ID certificate and notarised by Apple,'
@@ -124,7 +124,7 @@ jobs:
               echo 'quarantine flag:'
               echo
               echo '```'
-              echo 'xattr -dr com.apple.quarantine /Applications/Paint.app'
+              echo 'xattr -dr com.apple.quarantine /Applications/Pictor.app'
               echo '```'
             fi
             echo
@@ -136,6 +136,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" dist/Paint.zip \
+          gh release create "${GITHUB_REF_NAME}" dist/Pictor.zip \
             --title "${GITHUB_REF_NAME}" \
             --notes-file notes.md

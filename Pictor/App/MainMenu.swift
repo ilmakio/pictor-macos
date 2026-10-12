@@ -44,9 +44,9 @@ enum MainMenu {
     // MARK: Menus
 
     private static func appMenu() -> NSMenuItem {
-        let (item, menu) = submenu("Paint")
+        let (item, menu) = submenu("Pictor")
 
-        add(menu, "About Paint", #selector(NSApplication.orderFrontStandardAboutPanel(_:)))
+        add(menu, "About Pictor", #selector(NSApplication.orderFrontStandardAboutPanel(_:)))
         menu.addItem(.separator())
 
         add(menu, "Check for Updates…", #selector(UpdateChecker.checkForUpdates(_:)),
@@ -61,12 +61,12 @@ enum MainMenu {
         NSApp.servicesMenu = services
         menu.addItem(.separator())
 
-        add(menu, "Hide Paint", #selector(NSApplication.hide(_:)), "h")
+        add(menu, "Hide Pictor", #selector(NSApplication.hide(_:)), "h")
         add(menu, "Hide Others", #selector(NSApplication.hideOtherApplications(_:)), "h",
             modifiers: [.command, .option])
         add(menu, "Show All", #selector(NSApplication.unhideAllApplications(_:)))
         menu.addItem(.separator())
-        add(menu, "Quit Paint", #selector(NSApplication.terminate(_:)), "q")
+        add(menu, "Quit Pictor", #selector(NSApplication.terminate(_:)), "q")
 
         return item
     }
@@ -208,7 +208,7 @@ enum MainMenu {
 
     private static func helpMenu() -> NSMenuItem {
         let (item, menu) = submenu("Help")
-        add(menu, "Paint Shortcuts", #selector(AppDelegate.showShortcuts(_:)), "/",
+        add(menu, "Pictor Shortcuts", #selector(AppDelegate.showShortcuts(_:)), "/",
             modifiers: [.command, .shift])
         NSApp.helpMenu = menu
         return item

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Paint
+@testable import Pictor
 
 final class DocumentTests: XCTestCase {
 
